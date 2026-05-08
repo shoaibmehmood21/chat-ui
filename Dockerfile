@@ -46,9 +46,7 @@ ARG APP_BASE=
 ARG PUBLIC_APP_COLOR=
 ENV BODY_SIZE_LIMIT=15728640
 
-RUN --mount=type=cache,target=/app/.npm,id=npm-cache \
-    npm set cache /app/.npm && \
-    npm ci
+RUN --mount=type=cache,target=/app/.npm,id=npm-cache npm set cache /app/.npm && npm ci
 
 COPY --link --chown=1000 . .
 
